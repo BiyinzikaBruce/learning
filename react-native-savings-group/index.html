@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Native Track · Biyinzika Bruce</title>
+<meta name="description" content="Learn React Native and Expo by building a savings group app in 10 weeks.">
+<meta property="og:title" content="React Native Track · Biyinzika Bruce">
+<meta property="og:description" content="Learn React Native and Expo by building a savings group app in 10 weeks.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href=".././"><img src="../assets/avatar.jpg" alt="">Bruce</a>
+  <nav class="links">
+    <a class="on" href="https://biyinzikabruce.github.io/learning/">Learning</a>
+    <a href="https://biyinzikabruce.github.io/tools/">Tools</a>
+    <a href="https://biyinzikabruce.github.io/open-source/">Open Source</a>
+    <a href="https://biyinzikabruce.github.io/env-cheatsheet/">Env Cheatsheet</a>
+  </nav>
+  <a class="btn" href="https://biyinzikabruce.github.io/tools/coffee/" style="border-color:rgba(251,191,36,.4)">☕<span class="label">Buy me a coffee</span></a>
+  <a class="btn" href="https://github.com/BiyinzikaBruce" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="label">@BiyinzikaBruce</span></a>
+</header>
+<style>
+.hero{padding:56px 0 30px;display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.hero-text{flex:1;min-width:300px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;min-width:340px}
+.stat{padding:16px 18px;border-radius:var(--radius);background:var(--panel);border:1px solid var(--border)}
+.stat b{display:block;font-size:30px;color:var(--head);line-height:1.15}.stat small{color:var(--muted);font-size:13px}
+.toolbar{position:sticky;top:60px;z-index:40;padding:14px 0;background:rgba(11,13,18,.92);backdrop-filter:blur(10px);display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.search{flex:1;min-width:220px;max-width:320px;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text);font:inherit;font-size:14px;outline:none}
+.search:focus{border-color:var(--accent)}
+.chip{padding:7px 12px;border-radius:999px;border:1px solid var(--border);background:var(--panel);font-size:13.5px;font-weight:500;white-space:nowrap}
+.chip span{margin-left:4px;padding:1px 7px;border-radius:999px;background:var(--panel2);color:var(--muted);font-size:12px}
+.chip:hover{border-color:var(--accent);color:var(--head)}
+.sec{margin-top:52px}
+.sec h2{margin:0;font-size:26px;color:var(--head);display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.count{font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(124,92,255,.15);color:#b7a6ff;border:1px solid rgba(124,92,255,.35)}
+.sec > p{margin:6px 0 20px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:var(--radius);background:var(--panel);border:1px solid var(--border);transition:.18s;position:relative}
+.card:hover{transform:translateY(-2px);border-color:rgba(124,92,255,.6);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.ic{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:var(--panel2);border:1px solid var(--border);color:var(--head);font-weight:700}
+.ic.logo img{width:22px;height:22px}
+.card-body{flex:1;min-width:0}
+.nm{font-weight:700;color:var(--head);font-size:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.kind{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--panel2);border:1px solid var(--border);color:var(--muted)}
+.card p{margin:6px 0 0;font-size:14px;color:var(--text)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.arrow{color:var(--muted);font-size:18px;transition:.18s}
+.card:hover .arrow{color:var(--accent2);transform:translateX(3px)}
+.hidden{display:none!important}
+@media (max-width:760px){.stats{min-width:0;width:100%}.toolbar{position:static}}
+
+.toolbar{position:static}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.free{background:rgba(52,211,153,.1);color:var(--green);border-color:rgba(52,211,153,.3)}
+.track{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;padding:26px;border-radius:var(--radius);border:1px solid rgba(124,92,255,.45);
+  background:linear-gradient(140deg,rgba(124,92,255,.16),var(--panel) 60%);transition:.18s}
+.track:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.track h3{margin:6px 0 8px;font-size:24px;color:var(--head);letter-spacing:-.01em}
+.track p{margin:0;color:var(--text)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b7a6ff}
+.weeks{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:13.5px;color:var(--muted);align-content:start}
+.weeks b{color:var(--head);font-weight:600}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.status-pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.3)}
+table.syl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-size:14.5px}
+.syl th{background:var(--panel2);color:var(--head);text-align:left;font-weight:600}
+.syl th,.syl td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+.syl tr:last-child td{border-bottom:0}
+.syl td.wk{font-weight:700;color:var(--head);white-space:nowrap}
+.syl a{color:var(--accent2)} .syl a:hover{text-decoration:underline}
+@media (max-width:860px){.track{grid-template-columns:1fr}.syl thead{display:none}.syl tr{display:block;border-bottom:1px solid var(--border);padding:8px 0}.syl td{display:block;border:0;padding:4px 14px}}
+</style><div class="wrap narrow">
+  <div class="crumb"><a href="../">Learning</a> <span>/</span> <span>React Native track</span></div>
+  <div class="eyebrow">Mobile · Track</div>
+  <h1 style="font-size:clamp(30px,5vw,46px);margin-top:8px">React Native: Build a Savings Group App</h1>
+  <p class="lead">Ten weeks, one skill per week. Each week ends with a working feature of a real app that savings groups can use instead of a paper record book.</p>
+  <div class="meta" style="margin:16px 0 30px"><span class="status-pill">Starting November 2026</span><span class="kind">10 weeks</span><span class="kind">1–2 hours a day</span><span class="kind free">Free</span></div>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+    <div class="card"><div class="ic">🎯</div><div class="card-body"><div class="nm">The problem</div><p>Savings groups keep records in one paper book. It can get lost, entries get disputed, and members can't check their balance.</p></div></div>
+    <div class="card"><div class="ic">📱</div><div class="card-body"><div class="nm">The app</div><p>Treasurers record meetings offline, and members see their savings and loans, or get them by SMS on basic phones.</p></div></div>
+    <div class="card"><div class="ic">🛠️</div><div class="card-body"><div class="nm">The stack</div><p>Expo + React Native + TypeScript on the phone. Next.js, Prisma, PostgreSQL and Better Auth on the server.</p></div></div>
+  </div>
+
+  <section class="sec"><h2>🗓️ Syllabus</h2><p>Each week: a short lesson, the files to create, and the feature you ship.</p>
+    <table class="syl"><thead><tr><th>Week</th><th>You learn</th><th>You build</th><th>Free resource</th></tr></thead><tbody><tr><td class="wk">Week 1</td><td>Expo setup, Expo Go on your phone, core components, styling</td><td>Welcome screen and the app&#x27;s colour theme</td><td><a href="https://docs.expo.dev/tutorial/introduction/" target="_blank" rel="noopener">Expo Tutorial</a></td></tr><tr><td class="wk">Week 2</td><td>Expo Router: stacks, tabs, layouts, route params</td><td>App skeleton: Home, Meetings, Members, Profile tabs</td><td><a href="https://docs.expo.dev/tutorial/introduction/" target="_blank" rel="noopener">Expo Tutorial</a></td></tr><tr><td class="wk">Week 3</td><td>Forms and validation, keyboard handling, TypeScript types</td><td>Create-group form with its rules (share price, interest, fines)</td><td><a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank" rel="noopener">TypeScript Handbook</a></td></tr><tr><td class="wk">Week 4</td><td>Calling a Next.js API, loading and error states</td><td>Members list and invite by phone number</td><td><a href="https://react.dev/learn" target="_blank" rel="noopener">React: Learn</a></td></tr><tr><td class="wk">Week 5</td><td>Auth on mobile: secure token storage, phone OTP</td><td>Login, and screens that change by role</td><td><a href="https://better-auth.com/docs/introduction" target="_blank" rel="noopener">Better Auth Docs</a></td></tr><tr><td class="wk">Week 6</td><td>Lists that scale (FlatList), app state</td><td>Run a meeting: attendance and share purchases</td><td><a href="https://reactnative.dev/docs/getting-started" target="_blank" rel="noopener">React Native Docs</a></td></tr><tr><td class="wk">Week 7</td><td>Offline storage with SQLite, queueing and syncing changes</td><td>Record a full meeting with no internet, sync later</td><td><a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a></td></tr><tr><td class="wk">Week 8</td><td>Server logic: loans and interest, sending SMS</td><td>Loans and repayments, SMS to members after each meeting</td><td><a href="https://www.prisma.io/docs/prisma-orm/quickstart/postgresql" target="_blank" rel="noopener">Prisma Quickstart</a> · <a href="https://developers.africastalking.com/docs/sms/overview" target="_blank" rel="noopener">Africa&#x27;s Talking SMS</a></td></tr><tr><td class="wk">Week 9</td><td>Polish: icons, dark mode, accessibility, local languages</td><td>Member dashboard: my savings, my loan, next due date</td><td><a href="https://lawsofux.com/" target="_blank" rel="noopener">Laws of UX</a></td></tr><tr><td class="wk">Week 10</td><td>App icon, splash screen, building an Android app</td><td>Android build and a pilot with one real savings group</td><td><a href="https://docs.expo.dev/tutorial/introduction/" target="_blank" rel="noopener">Expo Tutorial</a></td></tr></tbody></table>
+  </section>
+
+  <section class="sec"><h2>✅ Before you start</h2>
+    <div class="panel" style="line-height:2">
+      1. Install Node.js and VS Code<br>
+      2. Install the <b>Expo Go</b> app on your phone<br>
+      3. Know basic JavaScript and React. If not, start with <a style="color:var(--accent2)" href="https://react.dev/learn" target="_blank" rel="noopener">React: Learn</a><br>
+      4. Talk to a savings group and note their rules: share price, interest, fines, cycle length
+    </div>
+  </section>
+  <footer>
+    <span>© 2026 Biyinzika Bruce · Tech Power Africa</span>
+    <span><a href=".././">All learning</a> · <a href="https://github.com/BiyinzikaBruce/learning" target="_blank" rel="noopener">Source on GitHub</a></span>
+  </footer>
+</div>
+<script>
+function copyText(text, btn) {
+  const done = () => { const o = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(() => btn.textContent = o, 1400); };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => fallback());
+  else fallback();
+  function fallback() { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); done(); }
+}
+
+</script>
+</body>
+</html>
